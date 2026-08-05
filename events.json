@@ -1,0 +1,246 @@
+{
+  "version": 1,
+  "currency": "RUB",
+  "events": [
+    {
+      "id": "he_shell",
+      "title": "Фугасный снаряд в курсор",
+      "command": "!he",
+      "priceRub": 349,
+      "category": "Снаряды",
+      "target": "Курсор",
+      "description": "Фугасный снаряд мгновенно взрывается в точке под игровым курсором.",
+      "threat": "high"
+    },
+    {
+      "id": "antigrain_shell",
+      "title": "Гранульный снаряд в курсор",
+      "command": "!antigrain",
+      "priceRub": 1999,
+      "category": "Катастрофы",
+      "target": "Курсор",
+      "description": "Гранульный снаряд мгновенно поражает точку под курсором и уничтожает всё вокруг.",
+      "threat": "catastrophic"
+    },
+    {
+      "id": "incendiary_shell",
+      "title": "Зажигательный снаряд в курсор",
+      "command": "!fire",
+      "priceRub": 299,
+      "category": "Снаряды",
+      "target": "Курсор",
+      "description": "Зажигательный снаряд мгновенно взрывается под курсором и разбрасывает огонь.",
+      "threat": "medium"
+    },
+    {
+      "id": "rat_drop",
+      "title": "Крысиный десант",
+      "command": "!rats",
+      "priceRub": 299,
+      "category": "Животные",
+      "target": "Курсор",
+      "description": "Вокруг курсора появляется стая бешеных крыс.",
+      "threat": "medium"
+    },
+    {
+      "id": "chicken_drop",
+      "title": "Боевые курицы",
+      "command": "!chickens",
+      "priceRub": 149,
+      "category": "Животные",
+      "target": "Курсор",
+      "description": "Вокруг курсора высаживается отряд крайне недовольных куриц.",
+      "threat": "low"
+    },
+    {
+      "id": "enemy_drop",
+      "title": "Вражеский десант в курсор",
+      "command": "!dropraid",
+      "priceRub": 699,
+      "category": "Рейды",
+      "target": "Курсор",
+      "description": "Вражеские десантные капсулы падают прямо в область под курсором.",
+      "threat": "high"
+    },
+    {
+      "id": "small_raid",
+      "title": "Малый рейд",
+      "command": "!raid",
+      "priceRub": 499,
+      "category": "Рейды",
+      "target": "Карта",
+      "description": "На колонию немедленно отправляется небольшой рейд.",
+      "threat": "medium"
+    },
+    {
+      "id": "strong_raid",
+      "title": "Усиленный рейд",
+      "command": "!raidplus",
+      "priceRub": 899,
+      "category": "Рейды",
+      "target": "Карта",
+      "description": "На колонию немедленно отправляется усиленный рейд.",
+      "threat": "high"
+    },
+    {
+      "id": "thief_raid",
+      "title": "Налёт воришек",
+      "command": "!thieves",
+      "priceRub": 599,
+      "category": "Рейды",
+      "target": "Карта",
+      "description": "Тестовая версия: на колонию немедленно нападает небольшая быстрая группа рейдеров.",
+      "threat": "high"
+    },
+    {
+      "id": "enemy_reinforcement",
+      "title": "Вражеское подкрепление",
+      "command": "!reinforce",
+      "priceRub": 699,
+      "category": "Рейды",
+      "target": "Карта",
+      "description": "К врагам немедленно прибывает дополнительный боевой отряд.",
+      "threat": "high"
+    },
+    {
+      "id": "donor_boss",
+      "title": "Усиленный рейдер имени донатера",
+      "command": "!boss",
+      "priceRub": 799,
+      "category": "Рейды",
+      "target": "Карта",
+      "description": "На карту приходит усиленный вражеский боец с именем отправителя.",
+      "threat": "high"
+    },
+    {
+      "id": "resource_pods",
+      "title": "Грузовые капсулы с ресурсами",
+      "command": "!cargo",
+      "priceRub": 349,
+      "category": "Помощь",
+      "target": "Курсор",
+      "description": "Рядом с курсором падают капсулы со случайными полезными ресурсами.",
+      "threat": "positive"
+    },
+    {
+      "id": "mystery_box",
+      "title": "Коробка-сюрприз",
+      "command": "!box",
+      "priceRub": 199,
+      "category": "Рулетки",
+      "target": "Курсор",
+      "description": "В точке под курсором открывается случайный подарок или неприятный сюрприз.",
+      "threat": "random"
+    },
+    {
+      "id": "heal_random",
+      "title": "Исцеление случайной пешки",
+      "command": "!heal",
+      "priceRub": 299,
+      "category": "Помощь",
+      "target": "Случайная пешка",
+      "description": "Случайный раненый колонист получает экстренное лечение.",
+      "threat": "positive"
+    },
+    {
+      "id": "resurrect_random",
+      "title": "Воскресить умершего колониста",
+      "command": "!resurrect",
+      "priceRub": 999,
+      "category": "Помощь",
+      "target": "Случайная умершая пешка",
+      "description": "Случайный умерший колонист, чьё тело находится на текущей карте, возвращается к жизни.",
+      "threat": "positive"
+    },
+    {
+      "id": "mental_break",
+      "title": "Ментальный срыв случайной пешки",
+      "command": "!break",
+      "priceRub": 249,
+      "category": "Подляны",
+      "target": "Случайная пешка",
+      "description": "Случайный доступный колонист немедленно получает ментальный срыв.",
+      "threat": "medium"
+    },
+    {
+      "id": "inspiration",
+      "title": "Вдохновение",
+      "command": "!inspire",
+      "priceRub": 249,
+      "category": "Помощь",
+      "target": "Случайная пешка",
+      "description": "Случайный колонист получает подходящее вдохновение.",
+      "threat": "positive"
+    },
+    {
+      "id": "solar_flare",
+      "title": "Солнечная вспышка",
+      "command": "!flare",
+      "priceRub": 399,
+      "category": "Погода",
+      "target": "Карта",
+      "description": "На карте немедленно начинается солнечная вспышка.",
+      "threat": "medium"
+    },
+    {
+      "id": "thunderstorm",
+      "title": "Гроза",
+      "command": "!storm",
+      "priceRub": 299,
+      "category": "Погода",
+      "target": "Карта",
+      "description": "Погода мгновенно меняется на грозу с дождём и молниями.",
+      "threat": "medium"
+    },
+    {
+      "id": "gold_rain",
+      "title": "Золотой дождь",
+      "command": "!gold",
+      "priceRub": 499,
+      "category": "Помощь",
+      "target": "Курсор",
+      "description": "Вокруг курсора с неба падает несколько стопок золота.",
+      "threat": "positive"
+    },
+    {
+      "id": "three_way_lottery",
+      "title": "Лотерея из трёх вариантов",
+      "command": "!lottery",
+      "priceRub": 299,
+      "category": "Рулетки",
+      "target": "Выбор стримера",
+      "description": "Стример выбирает одну из трёх закрытых капсул: подарок, нейтральный результат или подляну.",
+      "threat": "random"
+    },
+    {
+      "id": "destroy_items_roulette",
+      "title": "Рулетка уничтожения предметов",
+      "command": "!deleteroulette",
+      "priceRub": 449,
+      "category": "Рулетки",
+      "target": "Случайные предметы",
+      "description": "Случайное количество вещей колонии бесследно исчезнет. Рулетка решит масштаб потери.",
+      "threat": "high"
+    },
+    {
+      "id": "shell_roulette",
+      "title": "Рулетка снарядов",
+      "command": "!shellroulette",
+      "priceRub": 599,
+      "category": "Рулетки",
+      "target": "Курсор",
+      "description": "Случайный снаряд мгновенно прилетит прямо в точку под курсором: может поджечь, хорошо взорвать или уничтожить всё вокруг.",
+      "threat": "random"
+    },
+    {
+      "id": "orbital_strike",
+      "title": "Орбитальный удар в курсор",
+      "command": "!orbital",
+      "priceRub": 2999,
+      "category": "Катастрофы",
+      "target": "Курсор",
+      "description": "Выбранная зона мгновенно подвергается мощному орбитальному обстрелу.",
+      "threat": "catastrophic"
+    }
+  ]
+}

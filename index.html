@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Прайс донат-ивентов для RimWorld">
+  <title>RimWorld: донат-ивенты</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">RIMWORLD · ИНТЕРАКТИВНЫЙ СТРИМ</p>
+      <h1 id="page-title">Донат-ивенты</h1>
+      <p class="lead"> Выбери событие, скопируй команду и вставь её в начало сообщения к донату. Ивент автоматически сработает в RimWorld во время стрима..</p>
+      <div class="hero__actions">
+        <a class="button button--primary" id="donate-top" target="_blank" rel="noopener noreferrer">Открыть DonationAlerts</a>
+        <button class="button button--ghost" id="how-it-works">Как это работает</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="controls" aria-label="Фильтры">
+      <input id="search" type="search" placeholder="Найти ивент или команду…" autocomplete="off">
+      <div id="categories" class="chips"></div>
+    </section>
+
+    <section class="notice">
+      <strong>Важно:</strong> отправьте сумму не ниже указанной и поставьте команду в самое начало сообщения. Один донат запускает один ивент. События по курсору срабатывают мгновенно в текущей точке мыши стримера.
+    </section>
+
+    <section id="events" class="grid" aria-live="polite"></section>
+  </main>
+
+  <dialog id="event-dialog">
+    <form method="dialog" class="modal">
+      <button class="modal__close" aria-label="Закрыть">×</button>
+      <p class="eyebrow" id="modal-category"></p>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <div class="command-box">
+        <div>
+          <span>Минимальная сумма</span>
+          <strong id="modal-price"></strong>
+        </div>
+        <div>
+          <span>Команда в сообщении</span>
+          <code id="modal-command"></code>
+        </div>
+      </div>
+      <p class="muted" id="modal-note"></p>
+      <div class="modal__actions">
+        <button type="button" class="button button--ghost" id="copy-command">Скопировать команду</button>
+        <a class="button button--primary" id="donate-modal" target="_blank" rel="noopener noreferrer">Перейти к донату</a>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="help-dialog">
+    <form method="dialog" class="modal">
+      <button class="modal__close" aria-label="Закрыть">×</button>
+      <p class="eyebrow">КАК ЭТО РАБОТАЕТ</p>
+      <h2>Три шага</h2>
+      <ol class="steps">
+        <li>Выбери ивент и скопируй его команду.</li>
+        <li>Открой DonationAlerts и укажи сумму не ниже цены.</li>
+        <li>Вставь одну команду в начало сообщения, затем допиши свой текст.</li>
+      </ol>
+      <p class="example"><code>!he Убери курсор с базы :)</code></p>
+      <p class="muted">Ник и оставшийся текст сообщения появятся в игровых оповещениях RimWorld.</p>
+    </form>
+  </dialog>
+
+  <footer>
+    <span id="streamer-name"></span>
+    <span>RimDonations prototype</span>
+  </footer>
+</body>
+</html>

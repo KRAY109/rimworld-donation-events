@@ -59,3 +59,23 @@ dialog::backdrop { background: rgba(0,0,0,.75); backdrop-filter: blur(3px); }
 footer { border-top: 1px solid var(--line); padding: 1.25rem; display: flex; justify-content: space-between; color: #82735f; font-size: .85rem; }
 .empty { color: var(--muted); padding: 3rem 0; }
 @media (max-width: 520px) { .hero { padding-top: 3rem; } .command-box { grid-template-columns: 1fr; } .card { min-height: 220px; } }
+
+.section-heading { margin: 1.8rem 0 .9rem; }
+.section-heading h2 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+.section-heading--catalog { margin-top: 2.7rem; }
+.featured-wrap[hidden] { display: none; }
+.grid--featured { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card__badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .35rem; }
+.dlc-badge { border-radius: 999px; padding: .25rem .5rem; font-size: .68rem; font-weight: 900; letter-spacing: .06em; border: 1px solid currentColor; }
+.dlc-badge--royalty { color: #e5c15d; }
+.dlc-badge--biotech { color: #7fc7a8; }
+.dlc-badge--anomaly { color: #cf88e8; }
+.card--featured { position: relative; overflow: hidden; isolation: isolate; border-color: rgba(255,214,92,.7); background: radial-gradient(circle at 70% 10%, rgba(112,183,255,.18), transparent 32%), linear-gradient(145deg, #252119, #12141b); box-shadow: 0 0 0 1px rgba(92,173,255,.16), 0 0 28px rgba(79,152,255,.09); }
+.card--featured::before, .card--featured::after { content: ""; position: absolute; inset: -2px; border-radius: inherit; pointer-events: none; z-index: -1; }
+.card--featured::before { background: conic-gradient(from var(--electric-angle, 0deg), transparent 0 42%, #76c8ff 47%, #fff3a6 50%, #76c8ff 53%, transparent 58% 100%); animation: electric-spin 3.2s linear infinite; }
+.card--featured::after { inset: 2px; background: linear-gradient(145deg, #252119, #12141b); }
+.electric-orbit { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: white; box-shadow: 0 0 6px 2px #7fd2ff, 0 0 18px 5px rgba(90,177,255,.65); top: 0; left: 10%; animation: charge-run 2.6s linear infinite; }
+@keyframes electric-spin { to { --electric-angle: 360deg; transform: rotate(360deg); } }
+@keyframes charge-run { 0% { left: 8%; top: 0; } 25% { left: calc(100% - 7px); top: 16%; } 50% { left: 80%; top: calc(100% - 7px); } 75% { left: 0; top: 75%; } 100% { left: 8%; top: 0; } }
+@media (prefers-reduced-motion: reduce) { .card--featured::before, .electric-orbit { animation: none; } }
+@media (max-width: 860px) { .grid--featured { grid-template-columns: 1fr; } }

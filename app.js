@@ -24,7 +24,7 @@ els.copy.addEventListener("click", async () => {
   setTimeout(() => els.copy.textContent = "Скопировать команду", 1200);
 });
 
-fetch("events.json")
+fetch("events.json?v=335", { cache: "no-store" })
   .then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
   .then(data => {
     state.events = data.events.filter(isDlcEnabled);
@@ -49,7 +49,7 @@ function renderCategories() {
 
 function render() {
   const allView = state.category === "Все" && !state.query;
-  const featured = state.events.filter(item => item.featured).sort(ruSort);
+  const featured = state.events.filter(item => item.featured).sort((a, b) => (a.featuredPriority || 999) - (b.featuredPriority || 999) || ruSort(a, b));
   els.featuredWrap.hidden = !allView || !featured.length;
   els.featured.innerHTML = allView ? featured.map((item, index) => cardHtml(item, index, true)).join("") : "";
 

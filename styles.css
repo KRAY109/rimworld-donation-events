@@ -79,3 +79,121 @@ footer { border-top: 1px solid var(--line); padding: 1.25rem; display: flex; jus
 @keyframes charge-run { 0% { left: 8%; top: 0; } 25% { left: calc(100% - 7px); top: 16%; } 50% { left: 80%; top: calc(100% - 7px); } 75% { left: 0; top: 75%; } 100% { left: 8%; top: 0; } }
 @media (prefers-reduced-motion: reduce) { .card--featured::before, .electric-orbit { animation: none; } }
 @media (max-width: 860px) { .grid--featured { grid-template-columns: 1fr; } }
+
+
+/* v3.3.5: featured block + cache-proof visual confirmation */
+.featured-wrap {
+  position: relative;
+  margin-top: 1.35rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(224,155,61,.32);
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(78,171,255,.10), transparent 45%),
+    linear-gradient(180deg, rgba(224,155,61,.035), rgba(0,0,0,0));
+  overflow: hidden;
+}
+.featured-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 0 40%, rgba(113,205,255,.07) 48%, rgba(255,229,132,.09) 50%, rgba(113,205,255,.07) 52%, transparent 60% 100%);
+  transform: translateX(-120%);
+  animation: featured-scan 4.8s ease-in-out infinite;
+}
+.charged-title {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  text-shadow: 0 0 16px rgba(100,190,255,.24);
+  animation: charged-title-pulse 1.7s ease-in-out infinite;
+}
+.charged-title__bolt {
+  display: inline-block;
+  color: #86d8ff;
+  filter: drop-shadow(0 0 7px rgba(105,205,255,.95));
+  animation: bolt-jitter .78s steps(2,end) infinite;
+}
+.charged-title__bolt--right { animation-delay: -.31s; }
+.charge-rail {
+  position: relative;
+  height: 6px;
+  margin: .8rem 0 1.15rem;
+  border-radius: 999px;
+  background: rgba(107,198,255,.08);
+  box-shadow: inset 0 0 0 1px rgba(117,205,255,.18);
+  overflow: visible;
+}
+.charge-rail span {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, #6fc8ff 24%, #fff0a0 50%, #6fc8ff 76%, transparent);
+  filter: blur(.2px) drop-shadow(0 0 6px rgba(104,201,255,.9));
+  background-size: 220% 100%;
+  animation: charge-flow 1.55s linear infinite;
+}
+.charge-rail i, .charge-rail b {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px #fff, 0 0 15px #69c9ff, 0 0 28px rgba(96,187,255,.75);
+  animation: rail-spark 2.1s linear infinite;
+}
+.charge-rail b { animation-delay: -1.05s; }
+
+.card--featured {
+  min-height: 285px;
+  border-color: rgba(116,203,255,.64);
+  box-shadow: 0 0 0 1px rgba(92,173,255,.15), 0 0 32px rgba(79,152,255,.13);
+  animation: featured-card-pulse 2.4s ease-in-out infinite;
+}
+.card--featured:nth-child(2) { animation-delay: -.8s; }
+.card--featured:nth-child(3) { animation-delay: -1.6s; }
+.card--featured .price {
+  color: #fff2b1;
+  text-shadow: 0 0 10px rgba(255,204,96,.25);
+}
+.card--featured .command {
+  color: #8bdcff;
+  text-shadow: 0 0 8px rgba(97,199,255,.35);
+}
+
+@keyframes featured-scan {
+  0%, 20% { transform: translateX(-120%); }
+  65%, 100% { transform: translateX(120%); }
+}
+@keyframes charged-title-pulse {
+  0%,100% { opacity: .88; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-1px); }
+}
+@keyframes bolt-jitter {
+  0%,100% { transform: translate(0,0) scale(.92); opacity: .75; }
+  35% { transform: translate(1px,-1px) scale(1.12); opacity: 1; }
+  70% { transform: translate(-1px,1px) scale(1); opacity: .9; }
+}
+@keyframes charge-flow {
+  from { background-position: 210% 0; }
+  to { background-position: -110% 0; }
+}
+@keyframes rail-spark {
+  0% { left: 0; transform: scale(.65); opacity: 0; }
+  8% { opacity: 1; }
+  48% { transform: scale(1.25); }
+  92% { opacity: 1; }
+  100% { left: calc(100% - 8px); transform: scale(.65); opacity: 0; }
+}
+@keyframes featured-card-pulse {
+  0%,100% { box-shadow: 0 0 0 1px rgba(92,173,255,.14), 0 0 26px rgba(79,152,255,.08); }
+  50% { box-shadow: 0 0 0 1px rgba(92,173,255,.28), 0 0 42px rgba(79,152,255,.18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .featured-wrap::before, .charged-title, .charged-title__bolt, .charge-rail span,
+  .charge-rail i, .charge-rail b, .card--featured { animation: none !important; }
+}

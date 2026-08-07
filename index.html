@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Прайс донат-ивентов для RimWorld">
   <title>RimWorld: донат-ивенты</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=335">
   <script src="config.js"></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=335" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -35,7 +35,8 @@
     <section id="featured-wrap" class="featured-wrap" aria-label="Главные катастрофы">
       <div class="section-heading">
         <p class="eyebrow">ГЛАВНЫЕ КАТАСТРОФЫ</p>
-        <h2>Заряжено и готово</h2>
+        <h2 class="charged-title"><span class="charged-title__bolt">⚡</span> Заряжено и готово <span class="charged-title__bolt charged-title__bolt--right">⚡</span></h2>
+        <div class="charge-rail" aria-hidden="true"><span></span><i></i><b></b></div>
       </div>
       <section id="featured-events" class="grid grid--featured"></section>
     </section>

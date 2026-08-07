@@ -1,5 +1,5 @@
 {
-  "version": "3.3-final",
+  "version": "3.3.5-web",
   "currency": "RUB",
   "events": [
     {
@@ -24,7 +24,8 @@
       "target": "Курсор",
       "description": "Гранульный снаряд мгновенно поражает точку под курсором и уничтожает всё в огромном радиусе.",
       "threat": "catastrophic",
-      "featured": true
+      "featured": true,
+      "featuredPriority": 1
     },
     {
       "id": "incendiary_shell",
@@ -45,7 +46,8 @@
       "target": "Курсор",
       "description": "Случайный снаряд мгновенно поражает точку под курсором: от пожара до катастрофического взрыва.",
       "threat": "catastrophic",
-      "featured": true
+      "featured": true,
+      "featuredPriority": 2
     },
     {
       "id": "orbital_strike",
@@ -56,7 +58,8 @@
       "target": "Курсор",
       "description": "Настоящая продолжительная орбитальная бомбардировка начинается прямо в точке под курсором.",
       "threat": "catastrophic",
-      "featured": true
+      "featured": true,
+      "featuredPriority": 3
     },
     {
       "id": "rat_drop",

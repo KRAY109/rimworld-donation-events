@@ -24,7 +24,7 @@ els.copy.addEventListener("click", async () => {
   setTimeout(() => els.copy.textContent = "Скопировать команду", 1200);
 });
 
-fetch("events.json?v=335", { cache: "no-store" })
+fetch("events.json?v=340", { cache: "no-store" })
   .then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
   .then(data => {
     state.events = data.events.filter(isDlcEnabled);
@@ -47,11 +47,37 @@ function renderCategories() {
   }));
 }
 
+function ensureFeaturedUi() {
+  if (els.featuredWrap && els.featured) return;
+
+  const eventsNode = els.events || document.querySelector("#events");
+  if (!eventsNode || !eventsNode.parentNode) return;
+
+  const wrap = document.createElement("section");
+  wrap.id = "featured-wrap";
+  wrap.className = "featured-wrap";
+  wrap.innerHTML = `
+    <div class="section-kicker">ГЛАВНЫЕ КАТАСТРОФЫ</div>
+    <h2 class="charged-title"><span class="charged-title__bolt">⚡</span> Заряжено и готово <span class="charged-title__bolt charged-title__bolt--right">⚡</span></h2>
+    <div class="charge-rail" aria-hidden="true"><span></span><i></i><b></b></div>
+    <div id="featured-events" class="events-grid events-grid--featured"></div>
+    <div class="section-kicker section-kicker--all">ПОЛНЫЙ ПРАЙС</div>
+    <h2 class="all-events-title">Все события</h2>
+  `;
+  eventsNode.parentNode.insertBefore(wrap, eventsNode);
+  els.featuredWrap = wrap;
+  els.featured = wrap.querySelector("#featured-events");
+}
+
 function render() {
+  ensureFeaturedUi();
   const allView = state.category === "Все" && !state.query;
   const featured = state.events.filter(item => item.featured).sort((a, b) => (a.featuredPriority || 999) - (b.featuredPriority || 999) || ruSort(a, b));
-  els.featuredWrap.hidden = !allView || !featured.length;
-  els.featured.innerHTML = allView ? featured.map((item, index) => cardHtml(item, index, true)).join("") : "";
+
+  if (els.featuredWrap && els.featured) {
+    els.featuredWrap.hidden = !allView || !featured.length;
+    els.featured.innerHTML = allView ? featured.map((item, index) => cardHtml(item, index, true)).join("") : "";
+  }
 
   const filtered = state.events.filter(item => {
     if (allView && item.featured) return false;
